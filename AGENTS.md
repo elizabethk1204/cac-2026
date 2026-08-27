@@ -19,7 +19,7 @@ Make both aspiring learners and researchers discover and learn more from scienti
 
 - **Intelligent Recommendations**: Algorithm-driven paper suggestions based on:
   - User profile interests and expertise level
-  - Interaction history (likes, saves, reading time)
+  - Interaction history (rating, saves, reading time)
   - Collaborative filtering from similar users
 - **Paper Snapshots**: Concise summaries showing:
   - figure or similar visual from the paper for eye catching purpose, takes up half the space of each snapshot
@@ -27,7 +27,7 @@ Make both aspiring learners and researchers discover and learn more from scienti
   - Research topic/category as tags/hashtags
   - abstract
   - journal
-  - Like and save options on the right side
+  - Rating and save options on the right side
 - **Search bar**
   - Search by field, date range, citation count
 
@@ -62,7 +62,7 @@ Make both aspiring learners and researchers discover and learn more from scienti
 
 - Infinite scroll of paper snapshots
 - Each card shows: title, authors, publication date, journal, summary, topic tags, figure within the paper
-- Like and save buttons below each card
+- Rating and save buttons below each card
 - Click to expand full paper details, redirect to source
 
 ### Profile & Settings
