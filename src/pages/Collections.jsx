@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 export default function Collections() {
   let [addingCollection, setAddingCollection] = useState(false);
 
@@ -8,6 +10,7 @@ export default function Collections() {
       name: "Neuroscience",
       description: "Papers on brain research and cognitive science",
       paperCount: 8,
+      tags: ["Neuroscience", "Cognitive Science"],
       icon: "🧠",
     },
     {
@@ -15,6 +18,7 @@ export default function Collections() {
       name: "AI & Machine Learning",
       description: "Deep learning, neural networks, and modern AI",
       paperCount: 15,
+      tags: ["AI", "Machine Learning", "Deep Learning"],
       icon: "🤖",
     },
     {
@@ -22,6 +26,7 @@ export default function Collections() {
       name: "Biotechnology",
       description: "CRISPR, gene therapy, and biological engineering",
       paperCount: 12,
+      tags: ["Biotechnology", "Genetics", "Molecular Biology"],
       icon: "🧬",
     },
     {
@@ -29,12 +34,23 @@ export default function Collections() {
       name: "Quantum Computing",
       description: "Quantum algorithms and quantum information",
       paperCount: 6,
+      tags: ["Quantum Computing", "Quantum Algorithms", "Quantum Information"],
       icon: "⚛️",
     },
   ]);
 
   function createCollection() {
-    let temp = [...collections, newCollectionName];
+    let temp = [
+      ...collections,
+      {
+        id: collections.length,
+        name: newCollectionName,
+        description: "",
+        paperCount: 0,
+        tags: [],
+        icon: "📁",
+      },
+    ];
     setCollections(temp);
     setNewCollectionName("");
     setAddingCollection(false);
@@ -51,7 +67,7 @@ export default function Collections() {
           <h1>My Collections</h1>
           <button
             className="btn btn-primary"
-            onClick={() => console.log("Create new collection")}
+            onClick={() => setAddingCollection(!addingCollection)}
           >
             + New Collection
           </button>
@@ -68,7 +84,9 @@ export default function Collections() {
               onClick={() => {
                 createCollection();
               }}
-            ></button>
+            >
+              Create
+            </button>
           </div>
         )}
 
