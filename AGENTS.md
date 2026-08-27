@@ -22,18 +22,18 @@ Make both aspiring learners and researchers discover and learn more from scienti
   - Interaction history (likes, saves, reading time)
   - Collaborative filtering from similar users
 - **Paper Snapshots**: Concise summaries showing:
-  - Title, authors, publication date
-  - Research topic/category
-  - AI-generated 1-2 sentence summary OR snapshot from abstract section
-  - figure or similar visual from the paper
+  - figure or similar visual from the paper for eye catching purpose, takes up half the space of each snapshot
+  - Text as follows: Title, authors, publication date
+  - Research topic/category as tags/hashtags
+  - abstract
   - journal
-  - Like and save options
+  - Like and save options on the right side
 - **Search bar**
   - Search by field, date range, citation count
 
 - **Two Save Methods**:
   1. Save to personal library within app, where custom collections can also be made within
-  2. Email article link to yourself for later
+  2. Email article link to yourself for later, set up with inital account. Can customize subject title, etc.
 
 ### Future Features (Phase 2+)
 
@@ -61,9 +61,9 @@ Make both aspiring learners and researchers discover and learn more from scienti
 ### Main Feed
 
 - Infinite scroll of paper snapshots
-- Each card shows: title, authors, date, summary, topic tags, visual like figure within the paper
+- Each card shows: title, authors, publication date, journal, summary, topic tags, figure within the paper
 - Like and save buttons below each card
-- Click to expand full paper details or redirect to source
+- Click to expand full paper details, redirect to source
 
 ### Profile & Settings
 
