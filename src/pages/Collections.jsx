@@ -1,5 +1,5 @@
 export default function Collections() {
-  const collections = [
+  let [collections, setCollections] = useState([
     {
       id: 1,
       name: "Neuroscience",
@@ -28,7 +28,7 @@ export default function Collections() {
       paperCount: 6,
       icon: "⚛️",
     },
-  ];
+  ]);
 
   return (
     <div className="collections-page">

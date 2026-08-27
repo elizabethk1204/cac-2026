@@ -8,6 +8,11 @@ export default function Settings() {
       <div className="settings-container">
         <h1>Account Settings</h1>
 
+        <div className="settings-section account-heading">
+          <h2>Account Management</h2>
+          <p>Manage your profile, notifications, security, and PaperFlow data.</p>
+        </div>
+
         <div className="settings-section">
           <h2>Profile Information</h2>
           <div className="settings-form">

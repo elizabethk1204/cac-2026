@@ -1358,6 +1358,15 @@ button, input { font-family: inherit; }
 .search-bar { display: flex; align-items: center; gap: 10px; max-width: 1070px; margin: 27px auto 0; padding: 0 17px; background: var(--paper); border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 4px 14px rgba(51, 68, 58, .025); }
 .search-bar span { color: #9aa49e; font-size: 23px; }
 .search-bar input { flex: 1; width: 100%; padding: 15px 0; border: 0; outline: 0; background: transparent; color: var(--ink); font-size: 13px; }
+.feed-progress-strip { display: flex; align-items: center; gap: 24px; max-width: 1070px; margin: 14px auto 0; padding: 12px 15px; border: 1px solid var(--line); border-radius: 7px; background: rgba(255,253,249,.68); }
+.feed-progress-strip > div { display: flex; align-items: center; gap: 8px; }
+.feed-progress-strip small, .feed-progress-strip strong { display: block; }
+.feed-progress-strip small { color: #9aa49e; font-size: 9px; }
+.feed-progress-strip strong { margin-top: 3px; color: var(--green); font: 400 14px Georgia, serif; }
+.progress-icon { display: grid; place-items: center; width: 27px; height: 27px; border-radius: 6px; background: #f9ded7; color: var(--coral); font-size: 16px; }
+.progress-icon.goal { background: #f8edc9; color: #bd8c2d; }
+.progress-strip-bar { flex: 1; height: 5px; overflow: hidden; border-radius: 10px; background: #e6ece6; }
+.progress-strip-bar span { display: block; width: 60%; height: 100%; border-radius: inherit; background: var(--coral); }
 .topic-tabs { display: flex; gap: 25px; max-width: 1070px; margin: 25px auto 0; border-bottom: 1px solid var(--line); overflow-x: auto; }
 .topic-tab { flex: 0 0 auto; padding: 0 0 13px; border: 0; border-bottom: 2px solid transparent; background: transparent; color: #89948e; font-size: 12px; font-weight: 700; }
 .topic-tab.active { border-color: var(--coral); color: var(--green); }
@@ -1396,6 +1405,7 @@ button, input { font-family: inherit; }
 .empty-state { padding: 40px 20px; border: 1px dashed #ccd7cd; border-radius: 8px; text-align: center; color: var(--muted-ink); }
 .empty-state strong { color: var(--ink); font-family: Georgia, serif; }
 .empty-state p { margin-top: 7px; font-size: 12px; }
+.feed-loading { margin: 25px 0; color: #98a29c; font-size: 11px; text-align: center; }
 .feed-aside { padding-top: 1px; }
 .streak-card { padding: 17px; border-radius: 8px; background: #2f6f5e; color: white; }
 .streak-top { display: flex; align-items: center; gap: 8px; font-size: 11px; }
@@ -1514,6 +1524,18 @@ input[type='text']:focus, input[type='email']:focus, input[type='password']:focu
 .profile-tabs { border-bottom-color: var(--line); }
 .tab-btn { color: #849089; font-size: 11px; }.tab-btn.active { border-bottom-color: var(--coral); color: var(--green); }
 .profile-section { border-bottom-color: var(--line); }
+.profile-overview-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.profile-progress-card { padding: 16px; border: 1px solid var(--line); border-radius: 7px; background: #f7f9f5; }
+.profile-progress-card .eyebrow { margin-bottom: 10px; }
+.profile-progress-card strong { display: block; color: var(--green); font: 400 24px Georgia, serif; }
+.profile-progress-card > span { display: block; margin-top: 5px; color: #9aa49e; font-size: 10px; }
+.profile-progress-card .progress-track { margin-top: 12px; }
+.profile-preferences { margin: 8px 0 14px; color: #7d8982; font-size: 12px; }
+.profile-interest-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+.profile-interest-tags span { padding: 6px 9px; border-radius: 4px; background: #edf4ee; color: var(--green); font-size: 10px; font-weight: 700; }
+.account-heading { padding: 17px 20px; }
+.account-heading h2 { margin-bottom: 7px; }
+.account-heading p { margin: 0; }
 .collection-card, .collection-detail-card, .search-result-item { border: 1px solid var(--line); border-radius: 7px; background: #fbfcf9; box-shadow: none; }
 .collection-card h3, .collection-detail-card h3 { color: var(--green); font: 400 16px Georgia, serif; }
 .search-header { border-bottom-color: var(--line); }.search-header p, .result-authors, .result-meta { color: var(--muted-ink); font-size: 11px; }
@@ -1524,7 +1546,7 @@ input[type='text']:focus, input[type='email']:focus, input[type='password']:focu
 .settings-container > h1 { margin-bottom: 30px; }.settings-section { border-color: var(--line); background: #fbfcf9; border-radius: 7px; }.settings-section h2 { color: var(--green); font: 400 19px Georgia, serif; border-bottom-color: var(--line); }.settings-section p { color: #68736d; font-size: 12px; }.danger-zone { border-color: #edb7ad; background: #fff5f2; }
 .btn-secondary { background: #e8eee7; color: var(--green); }.btn-secondary:hover { background: #dce8de; }
 
-@media (max-width: 700px) { .welcome-container, .register-container, .interest-container, .tutorial-container, .paper-detail-container, .profile-container, .search-results-container, .collections-container, .settings-container { padding: 25px 19px; } .welcome-container h1, .register-container h1, .interest-container h1, .tutorial-container h1, .paper-detail-container h1, .profile-container h1, .search-header h1, .collections-header h1, .settings-container > h1 { font-size: 28px; } .welcome-features { grid-template-columns: 1fr; } .paper-actions-detail { flex-direction: column; } .paper-actions-detail .btn { width: 100%; } .collections-header { align-items: flex-start; gap: 15px; flex-direction: column; } }
+@media (max-width: 700px) { .welcome-container, .register-container, .interest-container, .tutorial-container, .paper-detail-container, .profile-container, .search-results-container, .collections-container, .settings-container { padding: 25px 19px; } .welcome-container h1, .register-container h1, .interest-container h1, .tutorial-container h1, .paper-detail-container h1, .profile-container h1, .search-header h1, .collections-header h1, .settings-container > h1 { font-size: 28px; } .welcome-features { grid-template-columns: 1fr; } .paper-actions-detail { flex-direction: column; } .paper-actions-detail .btn { width: 100%; } .collections-header { align-items: flex-start; gap: 15px; flex-direction: column; } .feed-progress-strip { gap: 12px; padding: 10px; } .feed-progress-strip > div:nth-child(2) { display: none; } .profile-overview-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 480px) {
   .welcome-container {

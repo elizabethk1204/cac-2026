@@ -30,6 +30,20 @@ export default function Profile() {
         </div>
 
         <div className="profile-section">
+          <div className="profile-overview-grid">
+            <div className="profile-progress-card"><p className="eyebrow">Weekly streak</p><strong>4 days</strong><span>Best: 12 days</span></div>
+            <div className="profile-progress-card"><p className="eyebrow">Weekly goal</p><strong>3 / 5</strong><span>papers read</span><div className="progress-track"><span /></div></div>
+            <div className="profile-progress-card"><p className="eyebrow">Focus areas</p><strong>3 topics</strong><span>Personalized recommendations</span></div>
+          </div>
+        </div>
+
+        <div className="profile-section">
+          <h2>Interests & Expertise</h2>
+          <p className="profile-preferences">Your recommendations are tuned to your interests and experience.</p>
+          <div className="profile-interest-tags"><span>Computer Science</span><span>Biology</span><span>Physics</span><span>Intermediate</span></div>
+        </div>
+
+        <div className="profile-section">
           <h2>Recent Collections</h2>
           <div className="collections-grid">
             <div className="collection-card">
