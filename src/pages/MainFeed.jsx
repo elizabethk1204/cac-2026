@@ -50,7 +50,8 @@ const mockPapers = [
     date: "2024-07-22",
     topic: "Environmental Science",
     tags: ["#urbanecology", "#climate", "#biodiversity"],
-    abstractQuote: '"Urban trees provide interconnected ecological and social benefits, but their distribution and resilience depend on how cities plan for long-term environmental change."',
+    abstractQuote:
+      '"Urban trees provide interconnected ecological and social benefits, but their distribution and resilience depend on how cities plan for long-term environmental change."',
     image: "ECO",
     journal: "Global Environmental Change",
     readTime: "9 min read",
@@ -63,7 +64,8 @@ const mockPapers = [
     date: "2024-08-02",
     topic: "Neuroscience",
     tags: ["#memory", "#sleep", "#cognition"],
-    abstractQuote: '"Our findings suggest that targeted neural replay during sleep supports the selective consolidation of new memories and may improve later recall."',
+    abstractQuote:
+      '"Our findings suggest that targeted neural replay during sleep supports the selective consolidation of new memories and may improve later recall."',
     image: "NEU",
     journal: "Nature Neuroscience",
     readTime: "11 min read",
@@ -76,7 +78,8 @@ const mockPapers = [
     date: "2024-08-11",
     topic: "Computer Science",
     tags: ["#scienceofscience", "#discovery", "#research"],
-    abstractQuote: '"Combining large-scale scholarly data with expert judgment reveals overlooked connections that can guide more diverse and productive research agendas."',
+    abstractQuote:
+      '"Combining large-scale scholarly data with expert judgment reveals overlooked connections that can guide more diverse and productive research agendas."',
     image: "SCI",
     journal: "Science Advances",
     readTime: "7 min read",
@@ -193,9 +196,23 @@ export default function MainFeed({ onNavigate }) {
             />
           </div>
           <div className="feed-progress-strip">
-            <div><span className="progress-icon">✦</span><span><small>Reading streak</small><strong>4 days</strong></span></div>
-            <div><span className="progress-icon goal">◷</span><span><small>Weekly goal</small><strong>3 of 5 papers</strong></span></div>
-            <div className="progress-strip-bar"><span /></div>
+            <div>
+              <span className="progress-icon">✦</span>
+              <span>
+                <small>Reading streak</small>
+                <strong>4 days</strong>
+              </span>
+            </div>
+            <div>
+              <span className="progress-icon goal">◷</span>
+              <span>
+                <small>Weekly goal</small>
+                <strong>3 of 5 papers</strong>
+              </span>
+            </div>
+            <div className="progress-strip-bar">
+              <span />
+            </div>
           </div>
           <div className="topic-tabs" role="tablist">
             {["For you", "Computer Science", "Biology", "Physics"].map(
@@ -316,7 +333,9 @@ export default function MainFeed({ onNavigate }) {
                 <p>Try another topic or search term.</p>
               </div>
             )}
-            {visiblePapers.length < filteredPapers.length && <p className="feed-loading">Loading more papers...</p>}
+            {visiblePapers.length < filteredPapers.length && (
+              <p className="feed-loading">Loading more papers...</p>
+            )}
           </section>
           <aside className="feed-aside">
             <div className="streak-card">

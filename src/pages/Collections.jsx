@@ -1,4 +1,7 @@
 export default function Collections() {
+  let [addingCollection, setAddingCollection] = useState(false);
+
+  let [newCollectionName, setNewCollectionName] = useState("");
   let [collections, setCollections] = useState([
     {
       id: 1,
@@ -30,6 +33,13 @@ export default function Collections() {
     },
   ]);
 
+  function createCollection() {
+    let temp = [...collections, newCollectionName];
+    setCollections(temp);
+    setNewCollectionName("");
+    setAddingCollection(false);
+  }
+
   return (
     <div className="collections-page">
       <button className="back-btn" onClick={() => console.log("Go back")}>
@@ -46,6 +56,21 @@ export default function Collections() {
             + New Collection
           </button>
         </div>
+
+        {addingCollection && (
+          <div>
+            <input
+              value={newCollectionName}
+              onChange={(e) => setNewCollectionName(e.target.value)}
+              placeholder="Collection name"
+            />
+            <button
+              onClick={() => {
+                createCollection();
+              }}
+            ></button>
+          </div>
+        )}
 
         <div className="collections-grid">
           {collections.map((collection) => (
