@@ -56,22 +56,25 @@ Make both aspiring learners and researchers discover and learn more from scienti
 - User registration (name, email)
 - Interest/expertise selection (tags, keywords)
 - Tutorial on saving options, settings for how to send the automated emails (being able to choose send time, subject title)
-- 5 paper recommendations to start
 
 ### Main Feed
 
+- Very top includes a weekly streak, weekly goals
+
 - Infinite scroll of paper snapshots
-- Each card shows: title, authors, publication date, journal, summary, topic tags, figure within the paper
+- Each card, styled like an instagram post, shows: title, authors, publication date, journal, summary, topic tags, figure within the paper
 - Rating and save buttons below each card
-- Click to expand full paper details, redirect to source
+- Click to expand full paper details, or redirect to source depending on settings chosen earlier
 
 ### Profile & Settings
 
-- Saved papers organized by custom collections
-- Reading history and statistics
-- Interests and expertise preferences
-- Email notification settings
-- Account management
+- Settings
+  - Email notification settings
+  - Account management
+- Profile
+  - Reading history and statistics
+  - Interests and expertise preferences
+  - Weekly reading streak, weekly goals
 
 ### Additional Screens
 

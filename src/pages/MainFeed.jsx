@@ -192,7 +192,9 @@ export default function MainFeed({ onNavigate }) {
                   </div>
                   <div className="abstract-snapshot">
                     <p className="abstract-label">From the abstract</p>
-                    <blockquote className="paper-summary">{paper.abstractQuote}</blockquote>
+                    <blockquote className="paper-summary">
+                      {paper.abstractQuote}
+                    </blockquote>
                   </div>
                   <div className="paper-card-footer">
                     <span className="paper-category">{paper.topic}</span>
@@ -205,14 +207,21 @@ export default function MainFeed({ onNavigate }) {
                   </div>
                 </div>
                 <div className="paper-action-rail">
-                  <div className="rating-control" aria-label={`Rate ${paper.title}`}>
+                  <div
+                    className="rating-control"
+                    aria-label={`Rate ${paper.title}`}
+                  >
                     <div className="star-row">
                       {[1, 2, 3, 4, 5].map((star) => {
                         const currentRating = ratings[paper.id] || 0;
                         return (
                           <button
                             key={star}
-                            className={star <= currentRating ? "star-btn selected" : "star-btn"}
+                            className={
+                              star <= currentRating
+                                ? "star-btn selected"
+                                : "star-btn"
+                            }
                             onClick={() => setPaperRating(paper.id, star)}
                             aria-label={`${star} out of 5 stars`}
                           >
@@ -221,11 +230,17 @@ export default function MainFeed({ onNavigate }) {
                         );
                       })}
                     </div>
-                    <small>{ratings[paper.id] ? `${ratings[paper.id]} / 5` : "Rate this paper"}</small>
+                    <small>
+                      {ratings[paper.id]
+                        ? `${ratings[paper.id]} / 5`
+                        : "Rate this paper"}
+                    </small>
                   </div>
                   <button
                     className={
-                      saved.includes(paper.id) ? "rail-btn selected" : "rail-btn"
+                      saved.includes(paper.id)
+                        ? "rail-btn selected"
+                        : "rail-btn"
                     }
                     onClick={() => toggleItem(setSaved, paper.id)}
                     aria-label={`Save ${paper.title}`}

@@ -1,4 +1,4 @@
-export default function Tutorial() {
+export default function Tutorial({ onNavigate }) {
   const tutorials = [
     {
       title: "Discovering Papers",
@@ -13,9 +13,9 @@ export default function Tutorial() {
       icon: "💾",
     },
     {
-      title: "Liking & Learning",
+      title: "Rating & Learning",
       description:
-        "Like papers to train our recommendation algorithm. The more you engage, the better suggestions you'll get.",
+        "Rate papers to train our recommendation algorithm. The more you engage, the better suggestions you'll get.",
       icon: "👍",
     },
     {
@@ -68,10 +68,7 @@ export default function Tutorial() {
           </div>
         </div>
 
-        <button
-          className="btn btn-primary"
-          onClick={() => console.log("Go to Main Feed")}
-        >
+        <button className="btn btn-primary" onClick={() => onNavigate("feed")}>
           Start Exploring
         </button>
       </div>

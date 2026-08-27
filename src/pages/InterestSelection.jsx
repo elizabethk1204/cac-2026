@@ -1,4 +1,6 @@
-export default function InterestSelection() {
+import { useState } from "react";
+
+export default function InterestSelection({ onNavigate }) {
   const interests = [
     "Biology",
     "Chemistry",
@@ -14,6 +16,16 @@ export default function InterestSelection() {
     "Economics",
   ];
 
+  const [selectedInterests, setSelectedInterests] = useState([]);
+
+  const toggleInterest = (interest) => {
+    setSelectedInterests((current) =>
+      current.includes(interest)
+        ? current.filter((item) => item !== interest)
+        : [...current, interest],
+    );
+  };
+
   return (
     <div className="interest-selection-page">
       <div className="interest-container">
@@ -26,8 +38,12 @@ export default function InterestSelection() {
           {interests.map((interest) => (
             <button
               key={interest}
-              className="interest-tag"
-              onClick={() => console.log(`Toggled ${interest}`)}
+              className={
+                selectedInterests.includes(interest)
+                  ? "interest-tag selected"
+                  : "interest-tag"
+              }
+              onClick={() => toggleInterest(interest)}
             >
               {interest}
             </button>
@@ -54,7 +70,8 @@ export default function InterestSelection() {
 
         <button
           className="btn btn-primary"
-          onClick={() => console.log("Go to Tutorial")}
+          onClick={() => onNavigate("tutorial")}
+          disabled={selectedInterests.length < 3}
         >
           Continue
         </button>

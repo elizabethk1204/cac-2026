@@ -1,4 +1,4 @@
-export default function Register() {
+export default function Register({ onNavigate }) {
   return (
     <div className="register-page">
       <div className="register-container">
@@ -39,14 +39,17 @@ export default function Register() {
           <button
             type="button"
             className="btn btn-primary"
-            onClick={() => console.log("Go to Interests")}
+            onClick={() => onNavigate("interests")}
           >
             Next
           </button>
         </form>
 
         <p className="login-link">
-          Already have an account? <a href="#/login">Sign In</a>
+          Already have an account?{" "}
+          <button type="button" onClick={() => onNavigate("feed")}>
+            Sign In
+          </button>
         </p>
       </div>
     </div>

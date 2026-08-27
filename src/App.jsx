@@ -18,13 +18,13 @@ export default function App() {
   const renderPage = () => {
     switch (currentPage) {
       case "welcome":
-        return <Welcome />;
+        return <Welcome onNavigate={setCurrentPage} />;
       case "register":
-        return <Register />;
+        return <Register onNavigate={setCurrentPage} />;
       case "interests":
-        return <InterestSelection />;
+        return <InterestSelection onNavigate={setCurrentPage} />;
       case "tutorial":
-        return <Tutorial />;
+        return <Tutorial onNavigate={setCurrentPage} />;
       case "feed":
         return <MainFeed onNavigate={setCurrentPage} />;
       case "paper":

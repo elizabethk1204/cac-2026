@@ -1,4 +1,4 @@
-export default function Welcome() {
+export default function Welcome({ onNavigate }) {
   return (
     <div className="welcome-page">
       <div className="welcome-container">
@@ -32,12 +32,15 @@ export default function Welcome() {
         </div>
         <button
           className="btn btn-primary"
-          onClick={() => console.log("Go to Register")}
+          onClick={() => onNavigate("register")}
         >
           Get Started
         </button>
         <p className="login-link">
-          Already have an account? <a href="#/login">Sign In</a>
+          Already have an account?{" "}
+          <button type="button" onClick={() => onNavigate("feed")}>
+            Sign In
+          </button>
         </p>
       </div>
     </div>
