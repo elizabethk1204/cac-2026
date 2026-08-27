@@ -2,6 +2,7 @@ import { useState } from "react";
 
 export default function Collections() {
   let [addingCollection, setAddingCollection] = useState(false);
+  let [literature, setLiterature] = useState([]);
 
   let [newCollectionName, setNewCollectionName] = useState("");
   let [collections, setCollections] = useState([
@@ -11,6 +12,7 @@ export default function Collections() {
       description: "Papers on brain research and cognitive science",
       paperCount: 8,
       tags: ["Neuroscience", "Cognitive Science"],
+      literature: ["Memory Consolidation During Sleep"],
       icon: "🧠",
     },
     {
@@ -19,6 +21,7 @@ export default function Collections() {
       description: "Deep learning, neural networks, and modern AI",
       paperCount: 15,
       tags: ["AI", "Machine Learning", "Deep Learning"],
+      literature: ["Deep Learning for Natural Language Processing"],
       icon: "🤖",
     },
     {
@@ -27,6 +30,7 @@ export default function Collections() {
       description: "CRISPR, gene therapy, and biological engineering",
       paperCount: 12,
       tags: ["Biotechnology", "Genetics", "Molecular Biology"],
+      literature: ["CRISPR Gene Editing: Advances and Ethical Considerations"],
       icon: "🧬",
     },
     {
