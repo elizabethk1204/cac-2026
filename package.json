@@ -10,10 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "daisyui": "^5.7.42",
     "react": "^19.2.8",
-    "react-dom": "^19.2.8"
+    "react-dom": "^19.2.8",
+    "react-router": "^8.4.0",
+    "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.4",

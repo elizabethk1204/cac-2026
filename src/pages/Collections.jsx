@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
 
 export default function Collections() {
+  const navigate = useNavigate();
   let [addingCollection, setAddingCollection] = useState(false);
   let [literature, setLiterature] = useState([]);
 
@@ -61,14 +63,17 @@ export default function Collections() {
   }
 
   return (
-    <div className="collections-page">
-      <button className="back-btn" onClick={() => console.log("Go back")}>
+    <div className="min-h-screen bg-base-200 px-5 py-8">
+      <button
+        className="mb-6 font-bold text-primary hover:underline"
+        onClick={() => navigate("/feed")}
+      >
         ← Back to Profile
       </button>
 
-      <div className="collections-container">
-        <div className="collections-header">
-          <h1>My Collections</h1>
+      <div className="mx-auto max-w-5xl">
+        <div className="mb-6 flex items-center justify-between gap-4">
+          <h1 className="text-4xl font-black text-primary">My Collections</h1>
           <button
             className="btn btn-primary"
             onClick={() => setAddingCollection(!addingCollection)}
@@ -80,11 +85,13 @@ export default function Collections() {
         {addingCollection && (
           <div>
             <input
+              className="input input-bordered"
               value={newCollectionName}
               onChange={(e) => setNewCollectionName(e.target.value)}
               placeholder="Collection name"
             />
             <button
+              className="btn btn-secondary"
               onClick={() => {
                 createCollection();
               }}
@@ -94,23 +101,43 @@ export default function Collections() {
           </div>
         )}
 
-        <div className="collections-grid">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {collections.map((collection) => (
-            <div key={collection.id} className="collection-detail-card">
-              <div className="collection-icon-large">{collection.icon}</div>
-              <h3>{collection.name}</h3>
-              <p className="collection-description">{collection.description}</p>
-              <p className="paper-count">{collection.paperCount} papers</p>
-              <div className="collection-card-actions">
-                <button onClick={() => console.log("View collection")}>
-                  View
-                </button>
-                <button onClick={() => console.log("Edit collection")}>
-                  Edit
-                </button>
-                <button onClick={() => console.log("Delete collection")}>
-                  Delete
-                </button>
+            <div
+              key={collection.id}
+              className="card border border-base-300 bg-base-100 shadow-lg"
+            >
+              <div className="card border border-base-300 bg-base-100 shadow-lg">
+                <div className="card-body">
+                  <div className="text-4xl">{collection.icon}</div>
+                  <h3 className="card-title">{collection.name}</h3>
+                  <p className="text-sm text-base-content/60">
+                    {collection.description}
+                  </p>
+                  <p className="font-bold text-secondary">
+                    {collection.paperCount} papers
+                  </p>
+                  <div className="flex gap-3">
+                    <button
+                      className="font-bold text-primary"
+                      onClick={() => console.log("View collection")}
+                    >
+                      View
+                    </button>
+                    <button
+                      className="font-bold text-primary"
+                      onClick={() => console.log("Edit collection")}
+                    >
+                      Edit
+                    </button>
+                    <button
+                      className="font-bold text-error"
+                      onClick={() => console.log("Delete collection")}
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           ))}

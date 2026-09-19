@@ -27,48 +27,75 @@ export default function Tutorial({ onNavigate }) {
   ];
 
   return (
-    <div className="tutorial-page">
-      <div className="tutorial-container">
-        <h1>How to Use PaperFlow</h1>
+    <div className="min-h-screen bg-base-200 px-5 py-8">
+      <div className="mx-auto max-w-5xl">
+        <h1 className="mb-8 text-center text-4xl font-black text-primary">
+          How to Use PaperFlow
+        </h1>
 
-        <div className="tutorial-grid">
+        <div className="mb-8 grid gap-5 sm:grid-cols-2">
           {tutorials.map((tutorial, index) => (
-            <div key={index} className="tutorial-card">
-              <div className="tutorial-icon">{tutorial.icon}</div>
-              <h3>{tutorial.title}</h3>
-              <p>{tutorial.description}</p>
+            <div
+              key={index}
+              className="card border border-base-300 bg-base-100 shadow-lg"
+            >
+              <div className="card-body items-center text-center">
+                <div className="text-4xl">{tutorial.icon}</div>
+                <h3>{tutorial.title}</h3>
+                <p>{tutorial.description}</p>
+              </div>
             </div>
           ))}
         </div>
 
-        <div className="email-settings">
-          <h3>Email Notification Settings</h3>
-          <div className="setting-option">
-            <label htmlFor="email-frequency">
-              How often should we send you articles?
-            </label>
-            <select id="email-frequency">
-              <option>Daily Digest</option>
-              <option>Weekly Digest</option>
-              <option>Never - I'll save manually</option>
-            </select>
-          </div>
-          <div className="setting-option">
-            <label htmlFor="email-time">Preferred send time:</label>
-            <input type="time" id="email-time" defaultValue="09:00" />
-          </div>
-          <div className="setting-option">
-            <label htmlFor="email-subject">Email subject line:</label>
-            <input
-              type="text"
-              id="email-subject"
-              placeholder="e.g., Weekly Research Digest"
-              defaultValue="Weekly Research Digest"
-            />
+        <div className="card mb-8 border border-base-300 bg-base-100 shadow-lg">
+          <div className="card-body">
+            <h3 className="card-title">Email Notification Settings</h3>
+            <div className="form-control">
+              <label className="label" htmlFor="email-frequency">
+                <span className="label-text">
+                  How often should we send you articles?
+                </span>
+              </label>
+              <select
+                className="select select-bordered w-full"
+                id="email-frequency"
+              >
+                <option>Daily Digest</option>
+                <option>Weekly Digest</option>
+                <option>Never - I'll save manually</option>
+              </select>
+            </div>
+            <div className="form-control">
+              <label className="label" htmlFor="email-time">
+                <span className="label-text">Preferred send time:</span>
+              </label>
+              <input
+                className="input input-bordered"
+                type="time"
+                id="email-time"
+                defaultValue="09:00"
+              />
+            </div>
+            <div className="form-control">
+              <label className="label" htmlFor="email-subject">
+                <span className="label-text">Email subject line:</span>
+              </label>
+              <input
+                className="input input-bordered"
+                type="text"
+                id="email-subject"
+                placeholder="e.g., Weekly Research Digest"
+                defaultValue="Weekly Research Digest"
+              />
+            </div>
           </div>
         </div>
 
-        <button className="btn btn-primary" onClick={() => onNavigate("feed")}>
+        <button
+          className="btn btn-primary w-full"
+          onClick={() => onNavigate("feed")}
+        >
           Start Exploring
         </button>
       </div>

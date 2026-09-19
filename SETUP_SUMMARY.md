@@ -134,9 +134,9 @@ Enjoy exploring PaperFlow! 🚀
 
 - Welcome Page - Creating account, saving user/password - dictionary?
 - Research Interests
-- More topics, ability to be more specific (write your own?)
-- Rewritten expertise level:
-- Feed
+  - More topics, ability to be more specific (write your own?)
+  - Rewritten expertise level: How does expertise level affect the feed? Maybe get rid of
+- Feed \*\* video
   - Starts with "good morning \_", followed by streak
   - Figure/highly related illustration from paper
   - Save button changed to add to collection button
@@ -146,10 +146,11 @@ Enjoy exploring PaperFlow! 🚀
     - Should lead to filtered view of main feed with parameters of the search
   - Paper
     - Discuss: get rid of as extra friciotn? display information from here onto main
+    - Abstract, key findings, topics, read full paper, save to library
     - read full paper -> linked
     - Related paper
       - Suggest in feed as well as under "paper"
-- Profile
+- Profile \*\* video
   - Smaller statistics under name: papers read, collections saved, reading time
   - Change interests, experiences
   - Highlight weekly streak, gameified reading
@@ -162,7 +163,8 @@ Enjoy exploring PaperFlow! 🚀
   - Settings
     - Change email, name
     - Get rid of bio
-- Collections
+- Collections \*\* video
   - Make new collection
     - Name collection, description, view papers (new page), edit, delete
     - View: Same as "paper", removed citations, rating, read time, abstract, key findings, topics, related papers
+    - View: Title, Authors, Journal, Date, Citation
