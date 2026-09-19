@@ -351,12 +351,13 @@ export default function MainFeed({ onNavigate }) {
                     <span className="badge badge-secondary badge-outline">
                       {paper.topic}
                     </span>
-                    <button
+                    <a
                       className="font-bold text-primary"
-                      onClick={() => onNavigate("paper")}
+                      href="/" //add actual link to the paper
+                      target="_blank"
                     >
                       Read paper <span>↗</span>
-                    </button>
+                    </a>
                   </div>
                 </div>
                 <div className="flex flex-row items-center justify-start gap-4 border-t border-base-300 pt-3 md:flex-col md:justify-center md:border-l md:border-t-0 md:pl-3 md:pt-0">
