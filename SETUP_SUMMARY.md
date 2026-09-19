@@ -129,3 +129,40 @@ src/
 - Code is well-organized and commented where needed
 
 Enjoy exploring PaperFlow! 🚀
+
+## Notes - 9/19
+
+- Welcome Page - Creating account, saving user/password - dictionary?
+- Research Interests
+- More topics, ability to be more specific (write your own?)
+- Rewritten expertise level:
+- Feed
+  - Starts with "good morning \_", followed by streak
+  - Figure/highly related illustration from paper
+  - Save button changed to add to collection button
+  - Include: Date shown more prominently
+  - Search
+    - Search filters for date, authors, journal, topic
+    - Should lead to filtered view of main feed with parameters of the search
+  - Paper
+    - Discuss: get rid of as extra friciotn? display information from here onto main
+    - read full paper -> linked
+    - Related paper
+      - Suggest in feed as well as under "paper"
+- Profile
+  - Smaller statistics under name: papers read, collections saved, reading time
+  - Change interests, experiences
+  - Highlight weekly streak, gameified reading
+  - Reading streak
+    - PB, current progress
+    - day counted with first external link clicked of the day
+  - Weekly Goal
+    - Set quantity of papers
+      - Only tracked when click onto external link
+  - Settings
+    - Change email, name
+    - Get rid of bio
+- Collections
+  - Make new collection
+    - Name collection, description, view papers (new page), edit, delete
+    - View: Same as "paper", removed citations, rating, read time, abstract, key findings, topics, related papers
