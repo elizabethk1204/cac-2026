@@ -63,7 +63,6 @@ function DeveloperNavigation() {
     ["interests", "Interests"],
     ["tutorial", "Tutorial"],
     ["feed", "Feed"],
-    ["paper", "Paper"],
     ["profile", "Profile"],
     ["search", "Search"],
     ["collections", "Collections"],
