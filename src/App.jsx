@@ -11,7 +11,6 @@ import Register from "./pages/Register";
 import InterestSelection from "./pages/InterestSelection";
 import Tutorial from "./pages/Tutorial";
 import MainFeed from "./pages/MainFeed";
-import PaperDetail from "./pages/PaperDetail";
 import Profile from "./pages/Profile";
 import SearchResults from "./pages/SearchResults";
 import Collections from "./pages/Collections";
@@ -44,7 +43,6 @@ function AppRoutes() {
         path={pagePaths.feed}
         element={<MainFeed onNavigate={onNavigate} />}
       />
-      <Route path="/paper/:id" element={<PaperDetail />} />
       <Route path={pagePaths.profile} element={<Profile />} />
       <Route path={pagePaths.search} element={<SearchResults />} />
       <Route path={pagePaths.collections} element={<Collections />} />

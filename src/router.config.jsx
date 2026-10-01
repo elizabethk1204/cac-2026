@@ -4,7 +4,6 @@ export const pagePaths = {
   interests: "/onboarding/interests",
   tutorial: "/onboarding/tutorial",
   feed: "/feed",
-  paper: "/paper/1",
   profile: "/profile",
   search: "/search",
   collections: "/collections",
