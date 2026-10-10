@@ -131,14 +131,18 @@ export default function Paper() {
                 {selectedLexile}
               </p>
               <p className="mt-2 text-sm text-base-content/70">
-                The paper text is rewritten for the selected reading level.
+                {hasRewrittenText
+                  ? "The paper text is rewritten for the selected reading level."
+                  : "Select a reading level for the accessible overview below."}
               </p>
             </div>
           </div>
         </div>
 
         <div className="mt-8 rounded-[1.75rem] border border-base-content/10 bg-base-100 p-6 shadow-sm">
-          <h2 className="text-2xl font-black">Full paper rewrite</h2>
+          <h2 className="text-2xl font-black">
+            {hasRewrittenText ? "Full paper rewrite" : "Accessible overview"}
+          </h2>
           <p className="mt-2 text-base-content/70">
             Reading level: <span className="font-bold text-primary">{selectedLexile}</span>
           </p>
@@ -158,10 +162,9 @@ export default function Paper() {
               </p>
               {paper.keyFindings && (
                 <ul className="mt-4 list-disc space-y-2 pl-5 text-base-content/80">
-                  {paper.keyFindings
-                    .split(" - ")
-                    .slice(1)
-                    .map((finding) => <li key={finding}>{finding}</li>)}
+                  {paper.keyFindings.map((finding) => (
+                    <li key={finding}>{finding}</li>
+                  ))}
                 </ul>
               )}
             </div>

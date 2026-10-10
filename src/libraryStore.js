@@ -15,13 +15,13 @@ export function readLibrary() {
     !library ||
     !Array.isArray(library.savedPapers) ||
     !Array.isArray(library.customCollections) ||
-    typeof library.ratings !== "object" ||
-    library.ratings === null
+    (library.ratings !== undefined &&
+      (typeof library.ratings !== "object" || library.ratings === null))
   ) {
     throw new Error("Saved library data has an invalid format.");
   }
 
-  return library;
+  return { ...library, ratings: library.ratings ?? {} };
 }
 
 export function writeLibrary(library) {
