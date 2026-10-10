@@ -5,99 +5,124 @@ import { readLibrary, writeLibrary } from "../libraryStore";
 const mockPapers = [
   {
     id: 1,
-    title: "Deep Learning for Natural Language Processing",
-    authors: "Smith, J., Johnson, M., Williams, R.",
-    date: "2024-06-15",
-    topic: "Computer Science",
-    tags: ["#machinelearning", "#NLP", "#transformers"],
+    title:
+      "Loneliness Matters: A Theoretical and Empirical Review of Consequences and Mechanisms",
+    authors: "Louise C. Hawkley, John T. Cacioppo",
+    date: "7/22/2019",
+    topic: "Behavioral Medicine",
+    tags: ["#socialspecies", "#loneliness", "#mentalhealth"],
     abstractQuote:
-      '"Transformer architectures have become the dominant approach for a wide range of natural language processing tasks, enabling substantial gains through scalable attention mechanisms and transfer learning."',
-    image: "AI",
-    keyFindings:
-      "- Transformer models outperform traditional RNN-based approaches - Transfer learning significantly reduces training time - Multi-task training improves generalization - Model size correlates strongly with performance gains",
-    journal: "Nature Machine Intelligence",
-    readTime: "12 min read",
-    saved: false,
+      "The purpose of this paper is to review the features and consequences of loneliness within a comprehensive theoretical framework that informs interventions to reduce loneliness. We review physical and mental health consequences of loneliness, mechanisms for its effects, and effectiveness of extant interventions.",
+    image: "Social connection",
+    keyFindings: [
+      "Loneliness increases vigilance for threat and heightens feelings of vulnerability while raising desire to reconnect.",
+      "Implicit hypervigilance for social threat alters psychological processes influencing physiological functioning and diminishing sleep quality.",
+      "Loneliness increases morbidity and mortality through altered physiological functioning mechanisms.",
+    ],
+    journal: "Annals of Behavioral Medicine",
+    source: "https://doi.org/10.1007/s12160-010-9210-8",
+    readTime: "Review article",
   },
   {
     id: 2,
-    title: "Quantum Computing: Opportunities and Challenges",
-    authors: "Brown, A., Davis, K., Chen, L.",
-    date: "2024-05-20",
-    topic: "Physics",
-    tags: ["#quantumcomputing", "#cryptography", "#optimization"],
+    title:
+      "Neuroinflammatory markers sTREM2 and YKL-40 in association with Alzheimer’s disease pathology: a systematic review and meta-analysis",
+    authors:
+      "Rachael Yu, Anastasia Suraev, Víctor Vidal, Shawn Dexiao Kong, Robert Zachariae, Laura Piccio, Michael T. Heneka, Sharon L. Naismith, Johannes C. Michaelian",
+    date: "7/30/2026",
+    topic: "Biology",
+    tags: ["#alzheimer's", "#neuroinflammation", "#biomarkers"],
     abstractQuote:
-      '"We review the current state of quantum computing, focusing on the opportunities and practical challenges that arise as quantum systems move toward useful applications."',
-    image: "QC",
-    keyFindings:
-      "- Quantum algorithms can provide exponential speedups for certain problems - Error correction remains a major hurdle for scalable quantum computing - Hybrid quantum-classical approaches are promising for near-term applications - Quantum computing has implications for cryptography and security",
-    journal: "Quantum Information",
-    readTime: "8 min read",
-    saved: false,
+      "Neuroinflammation is increasingly recognised as a key feature of Alzheimer’s Disease (AD) pathophysiology. Markers of glial reactivity, sTREM2 and YKL-40, are elevated in mild cognitive impairment (MCI) and AD, but their associations with core pathology across these stages have not yet been systematically investigated.",
+    image: "Neuroinflammation",
+    keyFindings: [
+      "sTREM2 and YKL-40 are novel markers of glial reactivity elevated in mild cognitive impairment and Alzheimer's disease.",
+      "Neuroinflammation is recognized as a key feature of Alzheimer's disease pathophysiology.",
+      "The study examined cross-sectional and longitudinal associations between these markers and established AD biomarkers.",
+    ],
+    journal: "Molecular Psychiatry",
+    source: "https://doi.org/10.1038/s41380-026-03787-x",
+    readTime: "Systematic review and meta-analysis",
   },
   {
     id: 3,
-    title: "CRISPR Gene Editing: Advances and Ethical Considerations",
-    authors: "Martinez, S., Lee, H., Patel, R.",
-    date: "2024-07-10",
-    topic: "Biology",
-    tags: ["#CRISPR", "#geneediting", "#bioethics"],
+    title: "Overnight therapy? The role of sleep in emotional brain processing.",
+    authors: "Matthew P. Walker, Els van der Helm",
+    date: "2009",
+    topic: "Neuroscience",
+    tags: ["#sleep", "#emotionalregulation"],
     abstractQuote:
-      '"Recent advances in CRISPR-based technologies have expanded the precision and range of genome editing, while also raising important questions about responsible clinical translation."',
-    image: "BIO",
-    keyFindings:
-      "- CRISPR-Cas systems enable precise genome editing in a wide range of organisms - Off-target effects remain a concern for therapeutic applications - Ethical considerations include germline editing and equitable access to technology - Regulatory frameworks are evolving to address the unique challenges of gene editing",
-    journal: "Nature Biotechnology",
-    readTime: "10 min read",
-    saved: false,
+      "This review surveys an array of diverse findings across basic and clinical research domains, resulting in a convergent view of sleep-dependent emotional brain processing.",
+    image: "Sleep & emotion",
+    keyFindings: [
+      "The paper is a review surveying findings across basic and clinical research domains on sleep and emotional regulation.",
+      "Research builds connections between affective behavior and human brain function within cognitive neuroscience.",
+      "The authors outline a model describing sleep-dependent emotional brain processing based on sleep's unique neurobiology.",
+    ],
+    journal: "Psychological Bulletin",
+    source: "https://doi.org/10.1037/a0016570",
+    readTime: "Review article",
   },
   {
     id: 4,
-    title: "The Social Life of Urban Trees",
-    authors: "Nguyen, P., Carter, E., Okafor, N.",
-    date: "2024-07-22",
-    topic: "Environmental Science",
-    tags: ["#urbanecology", "#climate", "#biodiversity"],
+    title:
+      "Tumor associated depression, gut microbiota, and immune checkpoint inhibitor sensitivity",
+    authors: "J Wang",
+    date: "2026",
+    topic: "Psycho-oncology",
+    tags: ["#tumor", "#checkpoint", "#psychoneuroimmunology"],
     abstractQuote:
-      '"Urban trees provide interconnected ecological and social benefits, but their distribution and resilience depend on how cities plan for long-term environmental change."',
-    image: "ECO",
-    keyFindings:
-      "- Urban trees improve air quality, reduce heat islands, and support biodiversity - Social benefits include mental health improvements and community cohesion - Tree distribution is often inequitable, with marginalized communities having less access - Climate change poses challenges for urban tree survival and management",
-    journal: "Global Environmental Change",
-    readTime: "9 min read",
-    saved: false,
+      "This review specifically distinguishes between major depressive disorder (diagnosed via structured clinical interviews) and subsyndromal depressive symptoms (measured by self-report scales), as their biological correlates may differ.",
+    image: "Psychoneuroimmunology",
+    keyFindings: [
+      "Tumor-associated depression activates the hypothalamic pituitary adrenal axis and upregulates proinflammatory cytokines.",
+      "Impaired T cell function and reduced immune checkpoint inhibitor efficacy result from depression's biological effects.",
+      "Review distinguishes major depressive disorder from subsyndromal depressive symptoms using different diagnostic and measurement approaches.",
+    ],
+    journal: "Psycho-Oncologie",
+    source: "https://doi.org/10.18282/po5751",
+    readTime: "Review article",
   },
   {
     id: 5,
-    title: "Memory Consolidation During Sleep",
-    authors: "Harris, L., Patel, R., Moretti, G.",
-    date: "2024-08-02",
-    topic: "Neuroscience",
-    tags: ["#memory", "#sleep", "#cognition"],
+    title:
+      "Air Pollution and Mental Health Among African Americans and Caribbean Blacks: Findings from the National Survey of American Life",
+    authors:
+      "Karen D. Lincoln, Minhazul Mohsin, Jun Wu, Celina Phillipson, Karen Valladares",
+    date: "8/4/2026",
+    topic: "Sociology",
+    tags: ["#mentalhealth", "#airpollution", "#africanamericans"],
     abstractQuote:
-      '"Our findings suggest that targeted neural replay during sleep supports the selective consolidation of new memories and may improve later recall."',
-    image: "NEU",
-    keyFindings:
-      "- Sleep-dependent memory consolidation enhances long-term retention - Targeted neural replay during sleep facilitates the integration of new information - Cognitive performance is improved with adequate sleep duration - Sleep disruption impairs memory formation and learning",
-    journal: "Nature Neuroscience",
-    readTime: "11 min read",
-    saved: false,
+      "The findings highlight the need for policy strategies that jointly target environmental exposures and the social factors driving mental health vulnerability in diverse Black populations.",
+    image: "Air & mental health",
+    keyFindings: [
+      "Study examined associations between ambient fine particulate matter (PM2.5) and mental health disorders using logistic regression models.",
+      "National Survey of American Life dataset merged with census-tract spatially resolved PM2.5 estimates for 5,178 participants.",
+      "Air pollution disproportionately burdens Black communities and may contribute to mental health inequities among African Americans and Caribbean Blacks.",
+    ],
+    journal: "Sociological Focus",
+    source: "https://doi.org/10.1080/00380237.2026.2626862",
+    readTime: "Research article",
   },
   {
     id: 6,
-    title: "A New Perspective on Scientific Discovery",
-    authors: "Wilson, T., Adeyemi, K., Rossi, M.",
-    date: "2024-08-11",
-    topic: "Computer Science",
-    tags: ["#scienceofscience", "#discovery", "#research"],
+    title: "Major Depressive Disorder and Hypothalamic-Pituitary-Adrenal Axis Activity",
+    authors:
+      "Sophie A. Vreeburg, Witte J.G. Hoogendijk, Johannes van Pelt, Roel H. DeRijk, Jolanda C. M. Verhagen, Richard van Dyck, Johannes H. Smit, Frans G. Zitman, Brenda W.J.H. Penninx",
+    date: "2009",
+    topic: "Psychology",
+    tags: ["#cortisol", "#depression", "#cohortstudy"],
     abstractQuote:
-      '"Combining large-scale scholarly data with expert judgment reveals overlooked connections that can guide more diverse and productive research agendas."',
-    image: "SCI",
-    keyFindings:
-      "- Data-driven approaches can identify underexplored research areas - Interdisciplinary collaboration enhances the potential for novel discoveries - Expert judgment remains critical for interpreting complex scientific landscapes - Open access to data and publications accelerates the pace of discovery",
-    journal: "Science Advances",
-    readTime: "7 min read",
-    saved: false,
+      "There is a central belief that depression is associated with hyperactivity of the hypothalamic-pituitary-adrenal axis, resulting in higher cortisol levels. However, results are inconsistent. Objective: To examine whether there is an association between depression and various cortisol indicators in a large cohort study.",
+    image: "Cortisol & mood",
+    keyFindings: [
+      "Most depression characteristics (severity, chronicity, symptom profile, prior childhood trauma) were not associated with hypothalamic-pituitary-adrenal axis activity except for comorbid anxiety, which tended to be associated with a higher cortisol awakening response.",
+      "The use of psychoactive medication was generally associated with lower cortisol levels and less cortisol suppression after dexamethasone ingestion.",
+      "Because a higher cortisol awakening response was observed among both subjects with current MDD and subjects with remitted MDD, this may be indicative of an increased biological vulnerability for depression.",
+    ],
+    journal: "Archives of General Psychiatry",
+    source: "https://doi.org/10.1001/archgenpsychiatry.2009.50",
+    readTime: "Cohort study",
   },
 ];
 
@@ -126,7 +151,7 @@ export default function MainFeed({ onNavigate }) {
         const matchesTopic =
           activeTopic === "For you" || paper.topic === activeTopic;
         const searchText =
-          `${paper.title} ${paper.authors} ${paper.topic}`.toLowerCase();
+          `${paper.title} ${paper.authors} ${paper.topic} ${paper.journal} ${paper.tags.join(" ")} ${paper.abstractQuote}`.toLowerCase();
         return matchesTopic && searchText.includes(query.toLowerCase());
       }),
     [activeTopic, query],
@@ -333,12 +358,9 @@ export default function MainFeed({ onNavigate }) {
                       Key Findings:
                     </p>
                     <ul className="mt-1 grid gap-1 pl-4 text-sm text-base-content/70">
-                      {paper.keyFindings
-                        .split(" - ")
-                        .slice(1)
-                        .map((finding, index) => (
+                      {paper.keyFindings.map((finding, index) => (
                           <li key={index}>{finding}</li>
-                        ))}{" "}
+                        ))}
                     </ul>
                   </div>
                   <div className="mt-4 flex items-center justify-between gap-3">
@@ -350,8 +372,16 @@ export default function MainFeed({ onNavigate }) {
                       to="/paper"
                       state={{ paper }}
                     >
-                      Read paper <span>→</span>
+                      Read details <span>→</span>
                     </Link>
+                    <a
+                      className="font-bold text-primary"
+                      href={paper.source}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      DOI source ↗
+                    </a>
                   </div>
                 </div>
                 <div className="flex flex-row items-center justify-start gap-4 border-t border-base-300 pt-3 md:flex-col md:justify-center md:border-l md:border-t-0 md:pl-3 md:pt-0">
