@@ -20,7 +20,8 @@ const mockPapers = [
       "Loneliness increases morbidity and mortality through altered physiological functioning mechanisms.",
     ],
     journal: "Annals of Behavioral Medicine",
-    source: "https://doi.org/10.1007/s12160-010-9210-8",
+    source: "DOI",
+    sourceLink: "https://doi.org/10.1007/s12160-010-9210-8",
     readTime: "Review article",
   },
   {
@@ -41,7 +42,8 @@ const mockPapers = [
       "The study examined cross-sectional and longitudinal associations between these markers and established AD biomarkers.",
     ],
     journal: "Molecular Psychiatry",
-    source: "https://doi.org/10.1038/s41380-026-03787-x",
+    source: "DOI",
+    sourceLink: "https://doi.org/10.1038/s41380-026-03787-x",
     readTime: "Systematic review and meta-analysis",
   },
   {
@@ -60,7 +62,8 @@ const mockPapers = [
       "The authors outline a model describing sleep-dependent emotional brain processing based on sleep's unique neurobiology.",
     ],
     journal: "Psychological Bulletin",
-    source: "https://doi.org/10.1037/a0016570",
+    source: "DOI",
+    sourceLink: "https://doi.org/10.1037/a0016570",
     readTime: "Review article",
   },
   {
@@ -80,7 +83,8 @@ const mockPapers = [
       "Review distinguishes major depressive disorder from subsyndromal depressive symptoms using different diagnostic and measurement approaches.",
     ],
     journal: "Psycho-Oncologie",
-    source: "https://doi.org/10.18282/po5751",
+    source: "DOI",
+    sourceLink: "https://doi.org/10.18282/po5751",
     readTime: "Review article",
   },
   {
@@ -101,7 +105,8 @@ const mockPapers = [
       "Air pollution disproportionately burdens Black communities and may contribute to mental health inequities among African Americans and Caribbean Blacks.",
     ],
     journal: "Sociological Focus",
-    source: "https://doi.org/10.1080/00380237.2026.2626862",
+    source: "DOI",
+    sourceLink: "https://doi.org/10.1080/00380237.2026.2626862",
     readTime: "Research article",
   },
   {
@@ -121,7 +126,8 @@ const mockPapers = [
       "Because a higher cortisol awakening response was observed among both subjects with current MDD and subjects with remitted MDD, this may be indicative of an increased biological vulnerability for depression.",
     ],
     journal: "Archives of General Psychiatry",
-    source: "https://doi.org/10.1001/archgenpsychiatry.2009.50",
+    source: "DOI",
+    sourceLink: "https://doi.org/10.1001/archgenpsychiatry.2009.50",
     readTime: "Cohort study",
   },
 ];
@@ -271,7 +277,10 @@ export default function MainFeed({ onNavigate }) {
             className="tabs tabs-boxed mt-4 w-fit bg-base-100"
             role="tablist"
           >
-            {["For you", "Computer Science", "Biology", "Physics"].map(
+            {[
+              "For you",
+              ...new Set(mockPapers.map((paper) => paper.topic)),
+            ].map(
               (topic) => (
                 <button
                   key={topic}
@@ -376,7 +385,7 @@ export default function MainFeed({ onNavigate }) {
                     </Link>
                     <a
                       className="font-bold text-primary"
-                      href={paper.source}
+                      href={paper.sourceLink}
                       target="_blank"
                       rel="noreferrer"
                     >

@@ -56,7 +56,7 @@ export default function Paper() {
   const source = paper?.source ?? paperContent.source;
   const abstract =
     paper?.abstractQuote?.replace(/^"|"$/g, "") ?? paperContent.abstract;
-  const hasRewrittenText = !paper || paper.id === 1;
+  const hasRewrittenText = !paper;
 
   const updateRating = (nextRating) => {
     setRating(nextRating);
@@ -112,6 +112,16 @@ export default function Paper() {
               <p className="mt-3 leading-7 text-base-content/80">
                 {abstract}
               </p>
+              {paper?.sourceLink && (
+                <a
+                  className="btn btn-outline btn-sm mt-4"
+                  href={paper.sourceLink}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Open source paper ↗
+                </a>
+              )}
             </div>
             <div className="rounded-[1.5rem] border border-base-content/10 bg-base-100 p-5">
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">
@@ -144,7 +154,7 @@ export default function Paper() {
             <div className="mt-5 rounded-[1.25rem] bg-base-200 p-4">
               <p className="font-bold">Full text rewrite unavailable</p>
               <p className="mt-2 leading-7 text-base-content/70">
-                This feed entry includes an abstract and key findings, but not the source paper text needed for a full rewrite.
+                This feed record includes the abstract and key findings, but not the complete source text needed for a full paper rewrite. Open the DOI source above to read the original.
               </p>
               {paper.keyFindings && (
                 <ul className="mt-4 list-disc space-y-2 pl-5 text-base-content/80">
