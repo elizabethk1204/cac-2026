@@ -11,6 +11,10 @@ import Register from "./pages/Register";
 import InterestSelection from "./pages/InterestSelection";
 import Tutorial from "./pages/Tutorial";
 import MainFeed from "./pages/MainFeed";
+import Paper from "./pages/Paper";
+import Quiz from "./pages/Quiz";
+import Community from "./pages/Community";
+import MonthlyArticle from "./pages/MonthlyArticle";
 import Profile from "./pages/Profile";
 import SearchResults from "./pages/SearchResults";
 import Collections from "./pages/Collections";
@@ -43,6 +47,10 @@ function AppRoutes() {
         path={pagePaths.feed}
         element={<MainFeed onNavigate={onNavigate} />}
       />
+      <Route path={pagePaths.paper} element={<Paper />} />
+      <Route path={pagePaths.quiz} element={<Quiz />} />
+      <Route path={pagePaths.community} element={<Community />} />
+      <Route path={pagePaths.monthly} element={<MonthlyArticle />} />
       <Route path={pagePaths.profile} element={<Profile />} />
       <Route path={pagePaths.search} element={<SearchResults />} />
       <Route path={pagePaths.collections} element={<Collections />} />
@@ -61,6 +69,10 @@ function DeveloperNavigation() {
     ["interests", "Interests"],
     ["tutorial", "Tutorial"],
     ["feed", "Feed"],
+    ["paper", "Paper"],
+    ["quiz", "Quiz"],
+    ["community", "Community"],
+    ["monthly", "Monthly"],
     ["profile", "Profile"],
     ["search", "Search"],
     ["collections", "Collections"],

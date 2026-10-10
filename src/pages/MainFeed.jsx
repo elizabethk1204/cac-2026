@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router";
+import { readLibrary, writeLibrary } from "../libraryStore";
 
 const mockPapers = [
   {
@@ -103,8 +104,7 @@ const mockPapers = [
 export default function MainFeed({ onNavigate }) {
   const [query, setQuery] = useState("");
   const [activeTopic, setActiveTopic] = useState("For you");
-  const [ratings, setRatings] = useState({});
-  const [saved, setSaved] = useState([]);
+  const [library, setLibrary] = useState(readLibrary);
   const [displayedCount, setDisplayedCount] = useState(3);
 
   useEffect(() => {
@@ -132,15 +132,32 @@ export default function MainFeed({ onNavigate }) {
     [activeTopic, query],
   );
   const visiblePapers = filteredPapers.slice(0, displayedCount);
-
-  const toggleItem = (setItems, id) => {
-    setItems((items) =>
-      items.includes(id) ? items.filter((item) => item !== id) : [...items, id],
-    );
-  };
+  const savedTopicCollections = Object.entries(
+    library.savedPapers.reduce((topics, paper) => {
+      topics[paper.topic] = (topics[paper.topic] ?? 0) + 1;
+      return topics;
+    }, {}),
+  );
 
   const setPaperRating = (paperId, rating) => {
-    setRatings((currentRatings) => ({ ...currentRatings, [paperId]: rating }));
+    const updatedLibrary = {
+      ...library,
+      ratings: { ...library.ratings, [paperId]: rating },
+    };
+    setLibrary(updatedLibrary);
+    writeLibrary(updatedLibrary);
+  };
+
+  const toggleSaved = (paper) => {
+    const exists = library.savedPapers.some((item) => item.id === paper.id);
+    const updatedLibrary = {
+      ...library,
+      savedPapers: exists
+        ? library.savedPapers.filter((item) => item.id !== paper.id)
+        : [...library.savedPapers, { ...paper, rating: 0 }],
+    };
+    setLibrary(updatedLibrary);
+    writeLibrary(updatedLibrary);
   };
 
   return (
@@ -198,7 +215,7 @@ export default function MainFeed({ onNavigate }) {
       </aside>
 
       <main className="min-h-screen lg:ml-60">
-        <header className="sticky top-0 z-5 border-b border-base-300 bg-base-200/90 px-4 py-5 backdrop-blur sm:px-8">
+        <header className="border-b border-base-300 bg-base-200 px-4 py-5 sm:px-8">
           <div className="flex items-center justify-between gap-4">
             <div>
               <p className="text-xs font-bold uppercase tracking-widest text-primary">
@@ -224,33 +241,6 @@ export default function MainFeed({ onNavigate }) {
               type="search"
               placeholder="Search papers, authors, topics..."
             />
-          </div>
-          <div className="mt-4 grid grid-cols-2 gap-3 rounded-2xl border border-base-300 bg-base-100 p-3 sm:grid-cols-3">
-            <div>
-              <span className="text-xl text-primary">✦</span>
-              <span>
-                <small className="block text-xs text-base-content/50">
-                  Reading streak
-                </small>
-                <strong className="block">4 days</strong>
-              </span>
-            </div>
-            <div>
-              <span className="text-xl text-secondary">◷</span>
-              <span>
-                <small className="block text-xs text-base-content/50">
-                  Weekly goal
-                </small>
-                <strong className="block">3 of 5 papers</strong>
-              </span>
-            </div>
-            <div className="col-span-2 self-center sm:col-span-1">
-              <progress
-                className="progress progress-primary w-full"
-                value="60"
-                max="100"
-              />
-            </div>
           </div>
           <div
             className="tabs tabs-boxed mt-4 w-fit bg-base-100"
@@ -306,9 +296,13 @@ export default function MainFeed({ onNavigate }) {
                       {paper.date} · {paper.readTime}
                     </span>
                   </div>
-                  <h2 className="mt-2 text-xl font-black leading-tight">
+                  <Link
+                    to="/paper"
+                    state={{ paper }}
+                    className="mt-2 block text-xl font-black leading-tight hover:text-primary"
+                  >
                     {paper.title}
-                  </h2>
+                  </Link>
                   <p className="mt-1 text-sm text-base-content/60">
                     {paper.authors}
                   </p>
@@ -351,13 +345,13 @@ export default function MainFeed({ onNavigate }) {
                     <span className="badge badge-secondary badge-outline">
                       {paper.topic}
                     </span>
-                    <a
+                    <Link
                       className="font-bold text-primary"
-                      href="/" //add actual link to the paper
-                      target="_blank"
+                      to="/paper"
+                      state={{ paper }}
                     >
-                      Read paper <span>↗</span>
-                    </a>
+                      Read paper <span>→</span>
+                    </Link>
                   </div>
                 </div>
                 <div className="flex flex-row items-center justify-start gap-4 border-t border-base-300 pt-3 md:flex-col md:justify-center md:border-l md:border-t-0 md:pl-3 md:pt-0">
@@ -367,7 +361,8 @@ export default function MainFeed({ onNavigate }) {
                   >
                     <div className="flex">
                       {[1, 2, 3, 4, 5].map((star) => {
-                        const currentRating = ratings[paper.id] || 0;
+                        const currentRating =
+                          library.ratings[paper.id] || 0;
                         return (
                           <button
                             key={star}
@@ -385,22 +380,26 @@ export default function MainFeed({ onNavigate }) {
                       })}
                     </div>
                     <small className="block text-xs text-base-content/60">
-                      {ratings[paper.id]
-                        ? `${ratings[paper.id]} / 5`
+                      {library.ratings[paper.id]
+                        ? `${library.ratings[paper.id]} / 5`
                         : "Rate this paper"}
                     </small>
                   </div>
                   <button
                     className={`btn btn-ghost btn-sm h-auto min-h-0 flex-col ${
-                      saved.includes(paper.id)
+                      library.savedPapers.some((item) => item.id === paper.id)
                         ? "text-secondary"
                         : "text-base-content/40"
                     }`}
-                    onClick={() => toggleItem(setSaved, paper.id)}
+                    onClick={() => toggleSaved(paper)}
                     aria-label={`Save ${paper.title}`}
                   >
                     <span>▱</span>
-                    <small>{saved.includes(paper.id) ? "Saved" : "Save"}</small>
+                    <small>
+                      {library.savedPapers.some((item) => item.id === paper.id)
+                        ? "Saved"
+                        : "Save"}
+                    </small>
                   </button>
                 </div>
               </article>
@@ -450,44 +449,49 @@ export default function MainFeed({ onNavigate }) {
                     View all
                   </button>
                 </div>
-                <button className="grid w-full grid-cols-[2rem_1fr_auto] items-center gap-2 py-3 text-left">
-                  <span className="grid h-8 w-8 place-items-center rounded-lg bg-primary/10 text-primary">
-                    ◌
-                  </span>
-                  <span>
-                    <strong className="block text-sm">
-                      AI & Machine Learning
-                    </strong>
-                    <small className="text-xs text-base-content/50">
-                      15 papers
-                    </small>
-                  </span>
-                  <b>›</b>
-                </button>
-                <button className="grid w-full grid-cols-[2rem_1fr_auto] items-center gap-2 border-t border-base-300 py-3 text-left">
-                  <span className="grid h-8 w-8 place-items-center rounded-lg bg-secondary/10 text-secondary">
-                    ⌁
-                  </span>
-                  <span>
-                    <strong className="block text-sm">Neuroscience</strong>
-                    <small className="text-xs text-base-content/50">
-                      8 papers
-                    </small>
-                  </span>
-                  <b>›</b>
-                </button>
-                <button className="grid w-full grid-cols-[2rem_1fr_auto] items-center gap-2 border-t border-base-300 py-3 text-left">
-                  <span className="grid h-8 w-8 place-items-center rounded-lg bg-warning/20 text-warning-content">
-                    ✧
-                  </span>
-                  <span>
-                    <strong className="block text-sm">To read this week</strong>
-                    <small className="text-xs text-base-content/50">
-                      6 papers
-                    </small>
-                  </span>
-                  <b>›</b>
-                </button>
+                {savedTopicCollections.length ? (
+                  savedTopicCollections.slice(0, 3).map(([topic, count]) => (
+                    <button
+                      key={topic}
+                      className="grid w-full grid-cols-[2rem_1fr_auto] items-center gap-2 border-t border-base-300 py-3 text-left"
+                      onClick={() => onNavigate("collections")}
+                    >
+                      <span className="grid h-8 w-8 place-items-center rounded-lg bg-primary/10 text-primary">
+                        ◌
+                      </span>
+                      <span>
+                        <strong className="block text-sm">{topic}</strong>
+                        <small className="text-xs text-base-content/50">
+                          {count} {count === 1 ? "paper" : "papers"}
+                        </small>
+                      </span>
+                      <b>›</b>
+                    </button>
+                  ))
+                ) : (
+                  <p className="border-t border-base-300 py-3 text-sm text-base-content/60">
+                    Save a paper to start a topic collection.
+                  </p>
+                )}
+                {library.customCollections.map((collection) => (
+                  <button
+                    key={collection.id}
+                    className="grid w-full grid-cols-[2rem_1fr_auto] items-center gap-2 border-t border-base-300 py-3 text-left"
+                    onClick={() => onNavigate("collections")}
+                  >
+                    <span className="grid h-8 w-8 place-items-center rounded-lg bg-secondary/10 text-secondary">
+                      ▱
+                    </span>
+                    <span>
+                      <strong className="block text-sm">{collection.name}</strong>
+                      <small className="text-xs text-base-content/50">
+                        {collection.paperIds.length}{" "}
+                        {collection.paperIds.length === 1 ? "paper" : "papers"}
+                      </small>
+                    </span>
+                    <b>›</b>
+                  </button>
+                ))}
               </div>
             </div>
             <div className="card border border-base-300 bg-base-100 shadow-lg">

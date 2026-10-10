@@ -1,50 +1,71 @@
 export default function Welcome({ onNavigate }) {
   return (
-    <div className="grid min-h-screen place-items-center bg-base-200 px-5 py-8">
-      <div className="card w-full max-w-3xl border border-base-300 bg-base-100 shadow-xl">
-        <div className="card-body items-center p-8 text-center sm:p-14">
-          <h1 className="text-4xl font-black tracking-tight text-primary sm:text-6xl">
-            Welcome to PaperFlow
-          </h1>
-          <p className="text-lg text-base-content/60">
-            Discover and manage scientific literature like never before
-          </p>
-          <div className="my-6 max-w-xl text-base-content/70">
-            <p className="leading-7">
-              PaperFlow makes scientific research accessible, engaging, and fun.
-              Scroll through curated paper summaries, build your reading habits,
-              and discover knowledge across any field.
-            </p>
-          </div>
-          <div className="my-8 grid w-full gap-4 sm:grid-cols-3">
-            <div className="rounded-2xl bg-base-200 p-4">
-              <span className="mb-2 block text-4xl">📚</span>
-              <h3>Smart Recommendations</h3>
-              <p>AI-powered suggestions based on your interests</p>
+    <div className="min-h-screen bg-base-100 px-5 py-8 text-base-content">
+      <div className="mx-auto flex min-h-[calc(100vh-4rem)] max-w-6xl flex-col justify-center">
+        <header className="mb-10 flex items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-base-content/10 bg-base-200 text-lg font-bold text-primary">
+              P
             </div>
-            <div className="rounded-2xl bg-base-200 p-4">
-              <span className="mb-2 block text-4xl">💾</span>
-              <h3>Save & Organize</h3>
-              <p>Multiple ways to save and organize papers</p>
-            </div>
-            <div className="rounded-2xl bg-base-200 p-4">
-              <span className="mb-2 block text-4xl">🔗</span>
-              <h3>Easy Access</h3>
-              <p>Direct links to full research papers</p>
-            </div>
+            <span className="text-xl font-semibold uppercase tracking-[0.2em] text-base-content/80">
+              PaperFlow
+            </span>
           </div>
           <button
-            className="btn btn-primary w-full max-w-sm"
-            onClick={() => onNavigate("register")}
+            type="button"
+            className="btn btn-ghost"
+            onClick={() => onNavigate("feed")}
           >
-            Get Started
+            Sign in
           </button>
-          <p className="mt-5 text-base-content/60">
-            Already have an account?{" "}
-            <button type="button" onClick={() => onNavigate("feed")}>
-              Sign In
-            </button>
-          </p>
+        </header>
+
+        <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_1.3fr] lg:gap-4">
+          <div className="order-2 text-center lg:order-1 lg:text-left">
+            <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-medium uppercase tracking-[0.28em] text-primary">
+              Research for everyone
+            </p>
+            <h1 className="text-5xl font-black tracking-[-0.06em] text-base-content sm:text-6xl xl:text-7xl">
+              Make research feel like your next discovery.
+            </h1>
+            <p className="mt-6 max-w-xl text-lg leading-8 text-base-content/70 lg:text-xl">
+              Discover papers that match your interests, turn dense research into clear reading, and build a habit that keeps learning fun.
+            </p>
+
+            <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row lg:items-start">
+              <button
+                className="btn btn-primary h-14 min-h-14 rounded-full px-8 text-base font-semibold"
+                onClick={() => onNavigate("register")}
+              >
+                Get started
+              </button>
+              <button
+                type="button"
+                className="btn btn-outline h-14 min-h-14 rounded-full px-8 text-base font-semibold"
+                onClick={() => onNavigate("feed")}
+              >
+                Explore feed
+              </button>
+            </div>
+
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-5 text-sm text-base-content/50 lg:justify-start">
+              <span>AI summaries</span>
+              <span className="h-1 w-1 rounded-full bg-base-content/30" />
+              <span>Curated topics</span>
+              <span className="h-1 w-1 rounded-full bg-base-content/30" />
+              <span>Reading streaks</span>
+            </div>
+          </div>
+
+          <div className="order-1 flex justify-center lg:order-2">
+            <div className="relative h-[340px] w-[420px] max-w-full" aria-label="PaperFlow hero illustration">
+              <div className="absolute inset-x-12 top-0 h-52 rounded-[2.2rem] border border-base-content/10 bg-base-200 shadow-[inset_0_0_0_1px_rgba(0,0,0,0.02)]" />
+              <div className="absolute inset-x-4 bottom-1 h-52 rounded-[2.2rem] border border-base-content/10 bg-base-300" />
+              <div className="absolute inset-x-10 bottom-8 h-40 rounded-[2rem] border border-base-content/10 bg-base-100" />
+              <div className="absolute inset-x-16 bottom-10 h-32 rounded-[1.5rem] border border-dashed border-base-content/15 bg-base-200" />
+              <div className="absolute inset-x-10 top-10 h-40 rounded-[2rem] border border-dashed border-base-content/10" />
+            </div>
+          </div>
         </div>
       </div>
     </div>

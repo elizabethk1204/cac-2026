@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @plugin "daisyui" {
-   themes: all;
+  themes: "cupcake";
 }
 
 @theme {
@@ -17,6 +17,8 @@
     min-height: 100vh;
     margin: 0;
     font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+    background: #f7f3ef;
+    color: #2d2a32;
   }
 
   button,
